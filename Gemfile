@@ -13,6 +13,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+# Use rollbar to identify errors
+gem 'rollbar', '~> 2.4.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.3'
 
