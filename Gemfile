@@ -13,6 +13,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+# Use bootstrap for application styling
+gem 'bootstrap-sass', '3.3.1'
+
 # Use rollbar to identify errors
 gem 'rollbar', '~> 2.4.0'
 
