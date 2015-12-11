@@ -1,27 +1,20 @@
 <div class="row">
+  <div class="col-md-6 col-md-offset-3 text-center"> 
+    <% if params[:plan] == '1' %>
+      <h1>Mentor Sign Up</h1>
+      <p>Sign up for free to lend your expertise and support!</p>
+    <% else %>
+      <h1>Mentee sign Up</h1>
+      <p>Sign up for free to gain access to our community of mentors.</p>
+    <% end %>
+  </div>
   <div class="col-md-4 col-md-offset-4">
     <div class="well">
     <h2>Sign up</h2>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-        <div class="field form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: 'form-control' %>
-        </div>
-        <div class="field form-group">
-          <%= f.label :password %>
-          <% if @validatable %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-        </div>
-        <div class="field form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-        </div>
-        <div class="actions form-group">
-          <%= f.submit "Sign up", class: 'btn btn-success' %>
-        </div>
+      <% if params[:plan] == '1' %>
+        <%= render "mentor_form" %>
+      <% else %>
+        <%= render "mentee_form" %>
       <% end %>
       <%= render "devise/shared/links" %>
     </div>
