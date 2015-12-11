@@ -8,14 +8,14 @@
       <h2 class="text-center">Mentee</h2>
       <h4 class="text-center">Sign up for free to gain access to our community of mentors.</h4>
       <br/>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-lg btn-block' %>
+      <%= link_to "Sign Up", new_user_registration_path(plan: @mentee_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
     </div>
   </div>
   <div class="col-md-6">
     <div class="well">
       <h2 class="text-center">Mentor</h2>
       <h4 class="text-center">Sign up for free to lend your expertise and support!</h4><br>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success btn-lg btn-block' %>
+      <%= link_to "Sign Up", new_user_registration_path(plan: @mentor_plan.id), class: 'btn btn-success btn-lg btn-block' %>
     </div>
   </div>
 </div>

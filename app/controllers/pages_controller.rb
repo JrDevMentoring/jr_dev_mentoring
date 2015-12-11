@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @mentor_plan = Plan.find(1)
+    @mentee_plan = Plan.find(2)
   end
   
   def about
