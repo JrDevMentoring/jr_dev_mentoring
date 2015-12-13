@@ -3,48 +3,7 @@
     <h1 class="text-center">Create Your Profile</h1>
     <p class="text-center">Be a part of the Jr. Dev Mentoring community by filling out your profile!</p>
     <div class="well">
-      <%= form_for @profile, url: user_profile_path do |f| %>
-        <div class="form-group">
-          <%= f.label :first_name %>
-          <%= f.text_field :first_name, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :last_name %>
-          <%= f.text_field :last_name, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :contact_email %>
-          <%= f.text_field :contact_email, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :city %>
-          <%= f.text_field :city, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :state %>
-          <%= f.text_field :state, class: 'form-control' %>
-        </div>
-        
-        <div class="form-group">
-          <%= f.label :country %>
-          <%= f.text_field :country, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :coding_languages, 'What coding languages are you learning? (1000 char. limit)' %>
-          <%= f.text_area :coding_languages, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :bio, 'Bio (1000 character limit)' %>
-          <%= f.text_area :bio, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :mentoring_needs, ' What are you mentoring needs? (1000 character limit)' %>
-          <%= f.text_area :mentoring_needs, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "Update Profile", class: 'btn btn-primary' %>
-        </div>
-      <% end %>
+     <%= render 'form' %>
     </div>
   </div>
 </div>
