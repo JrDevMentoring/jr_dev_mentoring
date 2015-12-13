@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     @profile = @user.build_profile(profile_params)
     if @profile.save
       flash[:success] = "Profile Updated!"
-      redirect_to user_path( params[:user_id] )
+      redirect_to user_path( @user )
     else
         flash[:danger] = "An error occured and your profile has not been updated. You must complete all form fields."
         render action: :new

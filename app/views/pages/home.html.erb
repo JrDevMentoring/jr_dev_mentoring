@@ -1,23 +1,52 @@
-<%= link_to "Click here to create your Jr. Dev Mentoring profile!", new_user_profile_path(current_user) if current_user %>
-
 <div class="jumbotron text-center">
   <h1>Welcome to Jr. Dev Mentoring</h1>
   <h3>Harnessing the Power of Mentorship <br>To Build A Community of Work Ready Jr. Devs.</h3>
 </div>
 <div class="row">
-  <div class="col-md-6">
-    <div class="well">
-      <h2 class="text-center">Mentee</h2>
-      <h4 class="text-center">Sign up for free to gain access to our community of mentors.</h4>
-      <br/>
-      <%= link_to "Sign Up", new_user_registration_path(plan: @mentee_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+  <% if user_signed_in? %>
+    <% if current_user.profile %>
+      <div class="col-md-6">
+        <div class="well">
+          <h2 class="text-center">Your Profile</h2>
+          <%= link_to "Edit your profile", "#", class: 'btn btn-default btn-lg btn-block' %>
+          <%= link_to "View your profile", user_path(current_user), class: 'btn btn-default btn-lg btn-block' %>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <% if current_user.plan.name == "mentor" %>
+          <%= render partial: "pages/mentor" %>
+        <% else %>
+          <%= render partial: "pages/mentee" %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-md-8 col-md-offset-2'>
+            <div class='well'>
+            <p class='text-center'>Create your profile so that you can share your information with the Jr. Dev Mentoring community.</p>
+            <%= link_to "Create your profile", new_user_profile_path(current_user), class: 'btn btn-default btn-lg btn-block'%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="col-md-6">
+      <div class="well">
+        <h2 class="text-center">Mentee</h2>
+        <h4 class="text-center">Sign up for free to gain access to our community of mentors.</h4>
+        <br/>
+        <%= link_to "Sign Up", new_user_registration_path(plan: @mentee_plan.id), class: 'btn btn-primary btn-lg btn-block' %>
+      </div>
     </div>
-  </div>
-  <div class="col-md-6">
-    <div class="well">
-      <h2 class="text-center">Mentor</h2>
-      <h4 class="text-center">Sign up for free to lend your expertise and support!</h4><br>
-      <%= link_to "Sign Up", new_user_registration_path(plan: @mentor_plan.id), class: 'btn btn-success btn-lg btn-block' %>
+    <div class="col-md-6">
+      <div class="well">
+        <h2 class="text-center">Mentor</h2>
+        <h4 class="text-center">Sign up for free to lend your expertise and support!</h4><br>
+        <%= link_to "Sign Up", new_user_registration_path(plan: @mentor_plan.id), class: 'btn btn-success btn-lg btn-block' %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
