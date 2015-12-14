@@ -48,5 +48,5 @@ gem 'spring',        group: :development
 # Use devise for user authentication
 gem 'devise', '3.4.1'
 
-# Use paperclip for image uploads
+# Use paperclip for image uploadsfi
 gem 'paperclip', '4.2.1'

@@ -1,0 +1,6 @@
+this is where mentors view list of mentee profiles
+<ul>
+   <% @mentees.each do |mentee| %>
+        <li><%= mentee.profile.first_name %></li>
+    <% end %> 
+</ul>

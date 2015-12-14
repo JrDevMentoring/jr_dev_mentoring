@@ -3,35 +3,6 @@
   <h3>Harnessing the Power of Mentorship <br>To Build A Community of Work Ready Jr. Devs.</h3>
 </div>
 <div class="row">
-  <% if user_signed_in? %>
-    <% if current_user.profile %>
-      <div class="col-md-6">
-        <div class="well">
-          <h2 class="text-center">Your Profile</h2>
-          <%= link_to "Edit your profile", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
-          <%= link_to "View your profile", user_path(current_user), class: 'btn btn-default btn-lg btn-block' %>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <% if current_user.plan.name == "mentor" %>
-          <%= render partial: "pages/mentor" %>
-        <% else %>
-          <%= render partial: "pages/mentee" %>
-        <% end %>
-      </div>
-    <% else %>
-      <div class='container'>
-        <div class='row'>
-          <div class='col-md-8 col-md-offset-2'>
-            <div class='well'>
-            <p class='text-center'>Create your profile so that you can be matched with someone in the Jr. Dev Mentoring community.</p>
-            <%= link_to "Create your profile", new_user_profile_path(current_user), class: 'btn btn-default btn-lg btn-block'%>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  <% else %>
     <div class="col-md-6">
       <div class="well">
         <h2 class="text-center">Mentee</h2>
@@ -47,5 +18,4 @@
         <%= link_to "Sign Up", new_user_registration_path(plan: @mentor_plan.id), class: 'btn btn-success btn-lg btn-block' %>
       </div>
     </div>
-  <% end %>
 </div>

@@ -1,6 +1,22 @@
-<%= image_tag @user.profile.avatar.url %>
-<%= @user.profile.first_name %><br>
-<%= @user.profile.city %> <%= @user.profile.state %> <%= @user.profile.country %><br/>
-<%= @user.profile.bio %><br/>
-<%= @user.profile.coding_languages %><br/>
-<%= @user.profile.mentoring_needs %><br/>
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-3 text-center'>
+            <%= image_tag @user.profile.avatar.url %>
+        </div>
+        <div class='col-md-6'>
+            <h1><%= @user.profile.first_name %></h1>
+            <h3><%= @user.profile.city %>, <%= @user.profile.state %>, <%= @user.profile.country %></h3>
+            <div class='well profile-block profile-description'>
+                <h4>Bio</h4>
+                <p><%= @user.profile.bio %></p>
+                <h4>Coding Languages</h4>
+                <p><%= @user.profile.coding_languages %></p>
+                <h4>Mentoring Needs</h4>
+                <p><%= @user.profile.mentoring_needs %></p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+

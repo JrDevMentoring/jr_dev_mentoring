@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   end
   resources :contacts
   get '/about' => 'pages#about'
+  namespace :mentee do
+    root 'pages#home'
+    get '/mentor_profiles' => 'profiles#mentor_profiles'
+  end
+  namespace :mentor do
+    root 'pages#home'
+    get '/mentee_profiles' => 'profiles#mentee_profiles'
+  end
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
