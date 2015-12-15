@@ -28,6 +28,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (6.1.2)
+      execjs
+      json
     bcrypt (3.1.10)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
@@ -650,6 +653,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bootstrap-sass (= 3.3.1)
   coffee-rails (= 4.0.0)
   devise (= 3.4.1)

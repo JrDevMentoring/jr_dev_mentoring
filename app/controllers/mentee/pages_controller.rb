@@ -1,4 +1,4 @@
-class Mentee::PagesController < ApplicationController
+class Mentee::PagesController < Mentee::MenteeController
   def home
   end
 end

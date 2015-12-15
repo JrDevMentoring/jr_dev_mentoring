@@ -1,6 +1,25 @@
-this is where mentees view list of mentor profiles
-<ul>
-   <% @mentors.each do |mentor| %>
-        <li><%= mentor.profile.first_name %></li>
-    <% end %> 
-</ul>
+<h2 class='text-center'>Jr. Dev Mentoring's Community of Mentors</h2>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <ul class="list-unstyled">
+            <% @mentors.each do |mentor| %>
+            <li>
+                <div class='well row <%= cycle('', 'white-bg')%>'>
+                    <div class="col-sm-4 text-center">
+                        <%= link_to mentor do %>
+                            <%= image_tag mentor.profile.avatar.url(:thumb), class: 'user-index-avatar' %> 
+                        <% end %>
+                    </div>
+                    <div>
+                        <%= link_to mentor do %>
+                            <h3><%= mentor.profile.first_name %></h3>
+                        <% end %> 
+                        <h5><%= mentor.profile.city %>, <%= mentor.profile.state %>, <%= mentor.profile.country %></h5>
+                        <h5><%= mentor.profile.coding_languages %></h5>
+                    </div>
+                </div>
+            </li>
+            <% end %> 
+        </ul>
+    </div>
+</div>

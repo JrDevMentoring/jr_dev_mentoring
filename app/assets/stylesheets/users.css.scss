@@ -1,7 +1,19 @@
+/* Users Show Page Styles */
+.user-show-avatar {
+  height: 128px;
+  width: 128px;
+}
 .well.profile-description {
   background-color: #5cb85c;
   border-color: #4cae4c;
   h4 {
       margin-top: 0;
   }
+}
+/* Users Index Page Styles */
+.user-index-avatar {
+  border-radius: 50%;
+}
+.well.white-bg {
+  background-color: white;
 }

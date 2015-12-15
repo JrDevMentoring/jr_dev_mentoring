@@ -1,4 +1,4 @@
-class Mentee::ProfilesController < ApplicationController
+class Mentee::ProfilesController < Mentee::MenteeController
     def mentor_profiles
         @mentors = User.mentors
     end

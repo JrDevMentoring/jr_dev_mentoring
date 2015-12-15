@@ -16,6 +16,9 @@ end
 # Use bootstrap for application styling
 gem 'bootstrap-sass', '3.3.1'
 
+# Use to parse CSS and add vendor prefixes to CSS
+gem "autoprefixer-rails"
+
 # Use rollbar to identify errors
 gem 'rollbar', '~> 2.4.0'
 
