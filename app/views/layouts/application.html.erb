@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render "layouts/header", root: root_path, community: nil %>
+<%= render "layouts/header", root: root_path, community: nil, account: nil %>
 <div class="container">  
   <% flash.each do |key, value| %>
     <%= content_tag :div, value, class: "alert alert-#{key}" %>
