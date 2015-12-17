@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   has_one :profile
   
   def self.mentees
-    User.where(plan_id: 2)
+    User.joins(:profile).where("users.plan_id=2 and profiles.not_available=?", false)
   end
   
   def self.mentors
-    User.where(plan_id: 1)
+    User.joins(:profile).where("users.plan_id=1 and profiles.not_available=?", false)
   end
 end
