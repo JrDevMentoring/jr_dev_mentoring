@@ -14,7 +14,11 @@
                 <h4>Mentoring Needs</h4>
                 <p><%= @user.profile.mentoring_needs %></p>
             </div class='connect_button'>
-            <a class="btn btn-primary btn-lg btn-block active" href="mailto:connections@jrdevmentoring.com" role="button">Click to Connect</a>
+            <% if current_user.plan.name == 'mentor' %>
+                <a class="btn btn-primary btn-lg btn-block active" href="mailto:mentor@jrdevmentoring.com" role="button">Click to Connect</a>
+            <% elsif current_user.plan.name == 'mentee' %>
+                <a class="btn btn-primary btn-lg btn-block active" href="mailto:mentee@jrdevmentoring.com" role="button">Click to Connect</a>
+            <% end %>
         </div>
     </div>
 </div>
