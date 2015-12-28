@@ -1,4 +1,4 @@
-class ConnectionsMailer < ActionMailer::Base
+class ConnectionMailer < ActionMailer::Base
     default to: 'connections@jrdevmentoring.com'
     
     def connection_email(name, email, body)

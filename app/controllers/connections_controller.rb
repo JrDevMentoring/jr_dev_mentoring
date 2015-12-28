@@ -8,7 +8,7 @@ class ConnectionsController < ApplicationController
     if @connection.save
       name = params[:connection][:your_name]
       email = params[:connection][:email]
-      body = params[:connection][:mentors_name, :mentees_name]
+      body = params[:connection][:connections_name]
       
       ConnectionMailer.connection_email(name, email, body).deliver
       flash[:success] = "Message sent. Someone at Jr. Dev Mentoring will respond to your message soon. Thank you."
@@ -20,6 +20,6 @@ class ConnectionsController < ApplicationController
   end
   private
     def connection_params
-      params.require(:connection).permit(:your_name, :email, :mentors_name, :mentees_name)
+      params.require(:connection).permit(:your_name, :email, :connections_name)
     end
 end
