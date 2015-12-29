@@ -14,7 +14,9 @@
                 <h4>Mentoring Needs</h4>
                 <p><%= @user.profile.mentoring_needs %></p>
             </div>
-            <a class="btn btn-primary btn-lg btn-block active" role="button">Click to Connect</a>
+                <%= button_to('Click to Connect', new_connection_path, method: :get, class: 'btn btn-primary btn-lg btn-block' )  %>
+            </div>
+            
     </div>
 </div>
 
