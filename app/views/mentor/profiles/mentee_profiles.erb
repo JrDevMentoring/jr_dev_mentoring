@@ -1,27 +1,4 @@
 <h2 class='text-center'>Jr. Dev Mentoring's Community of Mentees</h2>
 <h4 class='text-center'>How does this work?</h4>
 <p class='text-center'>1. Search through the profiles to find someone who you'd be interested in working with.<br> 2. Click on their avatar or name to view their complete profile.<br> 3. If this is someone you would like to work with, click on the <strong>"Mentor Me"</strong> button and the Jr. Dev Mentoring team will take it from there.</p>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <ul class="list-unstyled">
-            <% @mentees.each do |mentee| %>
-            <li>
-                <div class='well row <%= cycle('', 'white-bg')%>'>
-                    <div class="col-sm-4 text-center">
-                        <%= link_to mentee do %>
-                            <%= image_tag mentee.profile.avatar.url(:thumb), class: 'user-index-avatar' %> 
-                        <% end %>
-                    </div>
-                    <div>
-                        <%= link_to mentee do %>
-                            <h3><%= mentee.profile.first_name %></h3>
-                        <% end %> 
-                        <h5><%= mentee.profile.city %>, <%= mentee.profile.state %>, <%= mentee.profile.country %></h5>
-                        <h5><%= mentee.profile.coding_languages %></h5>
-                    </div>
-                </div>
-            </li>
-            <% end %> 
-        </ul>
-    </div>
-</div>
+<%= render 'profiles/community_profile', users: @mentees %>

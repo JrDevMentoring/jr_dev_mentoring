@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <ul class="list-unstyled">
+            <% users.each do |user| %>
+            <li>
+                <div class='well row <%= cycle('', 'white-bg')%>'>
+                    <div class="col-sm-4 text-center">
+                        <%= link_to user do %>
+                            <%= image_tag user.profile.avatar.url(:thumb), class: 'user-index-avatar' %> 
+                        <% end %>
+                    </div>
+                    <div>
+                        <%= link_to user do %>
+                            <h3><%= user.profile.first_name %></h3>
+                        <% end %> 
+                        <h5><%= user.profile.city %>, <%= user.profile.state %>, <%= user.profile.country %></h5>
+                        <h5><%= user.profile.coding_languages %></h5>
+                    </div>
+                </div>
+            </li>
+            <% end %> 
+        </ul>
+    </div>
+</div>
