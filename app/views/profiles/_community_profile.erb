@@ -11,7 +11,7 @@
                     </div>
                     <div>
                         <%= link_to user do %>
-                            <h3><%= user.profile.first_name %></h3>
+                            <h3><%= user.profile.first_name %> <%= user.profile.last_name %></h3>
                         <% end %> 
                         <h5><%= user.profile.city %>, <%= user.profile.state %>, <%= user.profile.country %></h5>
                         <h5><%= user.profile.coding_languages %></h5>
