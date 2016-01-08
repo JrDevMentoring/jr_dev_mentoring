@@ -6,5 +6,11 @@ class CreatePlans < ActiveRecord::Migration
       
       t.timestamps
     end
+
+    ['mentor', 'mentee'].each do |plan_name|
+      Plan.create(
+        name: plan_name
+      )
+    end
   end
 end
