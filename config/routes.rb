@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile
   end
-  resources :connections
+  get '/connections/new/:profile_id' => "connections#new", as: :new_connections
   resources :contacts
   get '/about' => 'pages#about'
   namespace :mentee do

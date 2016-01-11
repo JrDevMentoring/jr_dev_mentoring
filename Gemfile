@@ -53,3 +53,6 @@ gem 'devise', '3.4.1'
 
 # Use paperclip for image uploadsfi
 gem 'paperclip', '4.2.1'
+
+# Use letter open to test emails in developed environment
+gem "letter_opener", :group => :development

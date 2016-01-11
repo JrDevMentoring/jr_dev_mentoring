@@ -15,7 +15,7 @@
                 <p><%= @user.profile.mentoring_needs %></p>
             </div>
             <% unless current_user == @user %>
-                <%= button_to('Click to Connect', new_connection_path, method: :get, class: 'btn btn-primary btn-lg btn-block' )  %>
+                <%= button_to('Click to Connect', new_connections_path(@user.profile.id), method: :get, class: 'btn btn-primary btn-lg btn-block' )  %>
             <% end %>
         </div>
             
