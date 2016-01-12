@@ -1,0 +1,17 @@
+machine:
+  ruby:
+    version: rbx-2.3.0
+
+test:
+  pre:
+    - bundle exec rake db:migrate
+
+general:
+  artifacts:
+    - "coverage"
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - git push git@heroku.com:fathomless-badlands-2252.git $CIRCLE_SHA1:refs/heads/master
