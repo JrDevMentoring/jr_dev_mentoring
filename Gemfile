@@ -47,9 +47,17 @@ gem 'paperclip', '4.2.1'
 #
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+
   gem 'simplecov', :require => false
+
+  #Use to create attributes for objects
+  gem 'factory_girl_rails'
+
+  #Use to generate fake data such as names, addresses, and phone numbers
+  gem "faker"
 end
 
 group :development do
