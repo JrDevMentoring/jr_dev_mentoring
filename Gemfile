@@ -58,6 +58,9 @@ group :development, :test do
 
   #Use to generate fake data such as names, addresses, and phone numbers
   gem "faker"
+
+  # used to ensure a clean state for testing
+  gem 'database_cleaner'
 end
 
 group :development do

@@ -47,6 +47,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    database_cleaner (1.5.1)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -184,6 +185,7 @@ DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass (= 3.3.1)
   coffee-rails (= 4.0.0)
+  database_cleaner
   devise (= 3.4.1)
   factory_girl_rails
   faker
