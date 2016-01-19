@@ -8,8 +8,9 @@ FactoryGirl.define do
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
     contact_email { Faker::Internet.email }
+    coding_languages { Faker::Lorem.sentence }
     bio { Faker::Lorem.paragraph }
-    mentoring_needs { Faker::Lorem.words }
+    mentoring_needs { Faker::Lorem.sentence }
   end
 
   factory :plan do
