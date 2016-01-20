@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
        
   belongs_to :plan
   has_one :profile
+
+  validates :plan_id, presence: true #todo I need to write a validation test to check to make sure every user is assigned a plan
   
   def self.mentees
     User.joins(:profile).where("users.plan_id=2 and profiles.not_available=?", false)

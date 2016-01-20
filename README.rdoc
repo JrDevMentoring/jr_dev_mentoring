@@ -4,3 +4,8 @@ Junior Developer Mentoring: Harnessing the power of mentorship to build a commun
 
 JrDevMentoring.com
 @JrDevMentoring
+
+CI Status:
+
+{<img src="https://circleci.com/gh/kmcrayton7/jr_dev_mentoring.svg?style=svg" alt="Circle CI" />}[https://circleci.com/gh/kmcrayton7/jr_dev_mentoring]
+

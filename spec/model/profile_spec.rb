@@ -44,8 +44,8 @@ describe Profile do
       expect(profile.errors[:coding_languages]).to be_present
     end
 
-    it "should test to see if the user's input for coding_languages meets the required max of 1000" do
-      profile = FactoryGirl.build(:profile, coding_languages: SecureRandom.hex(501) )
+    it "should test to see if the user's input for coding_languages meets the required max of 500" do
+      profile = FactoryGirl.build(:profile, coding_languages: SecureRandom.hex(251) )
       expect{ profile.save }.not_to change(Profile, :count)
       expect(profile.errors[:coding_languages]).to be_present
     end
@@ -56,8 +56,8 @@ describe Profile do
       expect(profile.errors[:mentoring_needs]).to be_present
     end
 
-    it "should test to see if the user's input for mentoring_needs meets the required max of 1000" do
-      profile = FactoryGirl.build(:profile, mentoring_needs: SecureRandom.hex(501) )
+    it "should test to see if the user's input for mentoring_needs meets the required max of 500" do
+      profile = FactoryGirl.build(:profile, mentoring_needs: SecureRandom.hex(251) )
       expect{ profile.save }.not_to change(Profile, :count)
       expect(profile.errors[:mentoring_needs]).to be_present
     end

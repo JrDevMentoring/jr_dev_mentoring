@@ -27,4 +27,34 @@ describe User do
     end
   end
 
+  describe "Association" do
+    describe "plan" do
+      it 'belong_to a user' do
+        plan = FactoryGirl.create(:plan, :mentor)
+        user = FactoryGirl.build(:user, plan: plan)
+        expect(user.plan.name).to eq "mentor"
+      end
+    end
+    describe "profile" do
+      it "user has_one" do
+        profile = FactoryGirl.create(:profile)
+        user = FactoryGirl.build(:user, profile: profile)
+        expect(user.profile).to eq profile
+      end
+    end
+  end
+
+  describe "#Mentors" do
+    it "lists all available mentors" do
+
+    end
+
+    it "doesn't list unavailable mentors" do
+
+    end
+  end
+  describe "#Mentees" do
+
+  end
+
 end
