@@ -2,6 +2,7 @@ FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+    plan { create(:plan, :mentor) }
   end
 
   factory :profile do

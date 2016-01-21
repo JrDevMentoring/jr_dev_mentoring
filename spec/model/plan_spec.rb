@@ -6,3 +6,13 @@ describe Plan do
     expect(plan).to be_valid
   end
 end
+
+describe "Association" do
+  describe "plan" do
+    it 'has_many users' do
+      plan = FactoryGirl.create(:plan)
+      user = FactoryGirl.build(:user, plan: plan)
+      expect(user.plan).to eq plan
+    end
+  end
+end

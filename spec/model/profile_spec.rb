@@ -74,4 +74,14 @@ describe Profile do
       expect(profile.errors[:bio]).to be_present
     end
   end
+
+  describe "Association" do
+    describe "profile" do
+      it 'belong_to a user' do
+        profile = FactoryGirl.create(:profile)
+        user = FactoryGirl.build(:user, profile: profile)
+        expect(user.profile).to eq profile
+      end
+    end
+  end
 end
