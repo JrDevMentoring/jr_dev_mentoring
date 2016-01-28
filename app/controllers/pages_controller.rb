@@ -3,8 +3,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   
   def home
-    @mentor_plan = Plan.find(1)
-    @mentee_plan = Plan.find(2)
+    @mentor_plan = Plan.find_by_name('mentor')
+    @mentee_plan = Plan.find_by_name('mentee')
   end
   
   def about

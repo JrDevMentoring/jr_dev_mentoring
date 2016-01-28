@@ -1,4 +1,4 @@
-class ConnectionsController < ApplicationController
+class ConnectionsController < ApplicationController #todo remove
   def new
     connections_profile = Profile.find(params[:profile_id])
     requester_name = current_user.profile.first_name + " " + current_user.profile.last_name
