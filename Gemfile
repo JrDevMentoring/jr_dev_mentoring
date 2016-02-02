@@ -44,7 +44,9 @@ gem 'devise', '3.4.1'
 # Use paperclip for image uploadsfi
 gem 'paperclip', '4.2.1'
 
-#
+# Use figaro for saving environmental variables
+gem 'figaro'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
@@ -61,6 +63,9 @@ group :development, :test do
 
   # used to ensure a clean state for testing
   gem 'database_cleaner'
+
+  # Use pry for debugging
+  gem 'pry'
 end
 
 group :development do
@@ -68,7 +73,7 @@ group :development do
   gem "letter_opener"
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  #gem 'spring'
 end
 
 # Use postgresql as the database for production

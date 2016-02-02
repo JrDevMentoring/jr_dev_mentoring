@@ -7,13 +7,11 @@ class User < ActiveRecord::Base
   belongs_to :plan
   has_one :profile
 
-  validates :plan_id, presence: true
-  
   def self.mentees
-    User.joins(:profile).where("users.plan_id=2 and profiles.not_available=?", false)
+    User.joins(:profile, :plan).where("plans.name='mentee' and profiles.not_available=?", false)
   end
   
   def self.mentors
-    User.joins(:profile).where("users.plan_id=1 and profiles.not_available=?", false)
+    User.joins(:profile, :plan).where("plans.name='mentor' and profiles.not_available=?", false)
   end
 end

@@ -3,13 +3,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     
     def create
       super do |user|
-        user.plan_id = params[:plan]
+        user.plan_id = params[:plan].to_i
       end
     end
   
     private
       def select_plan
-        unless params[:plan] == "1" || params[:plan] == "2"
+        unless params[:plan] == Plan.find_by_name('mentor').id.to_s || params[:plan] == Plan.find_by_name('mentee').id.to_s
           flash[:notice] = "Please select a plan and sign up."
           redirect_to root_url
         end

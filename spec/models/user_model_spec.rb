@@ -25,12 +25,6 @@ describe User do
       expect(user.errors[:email]).not_to be_present
       expect(user.errors[:password]).not_to be_present
     end
-
-    it "should test to make sure every user is assigned to a plan_id" do
-      user = FactoryGirl.build(:user, plan_id: nil)
-      expect{user.save}.not_to change(User, :count)
-      expect(user.errors[:plan_id]).to be_present
-    end
   end
 
   describe "Association" do

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3 text-center"> 
-    <% if params[:plan] == '1' %>
+    <% if params[:plan] == Plan.find_by_name('mentor').id.to_s %>
       <h1>Mentor Sign Up</h1>
       <p>Sign up for free to lend your expertise and support!</p>
     <% else %>
@@ -11,7 +11,7 @@
   <div class="col-md-4 col-md-offset-4">
     <div class="well">
     <h2>Sign up</h2>
-      <% if params[:plan] == '1' %>
+      <% if params[:plan] == Plan.find_by_name('mentor').id.to_s %>
         <%= render "mentor_form" %>
       <% else %>
         <%= render "mentee_form" %>

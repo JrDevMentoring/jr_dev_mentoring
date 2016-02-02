@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Plan.delete_all
+['mentor', 'mentee'].each do |plan_name|
+  Plan.create(
+    name: plan_name
+  )
+end
