@@ -37,12 +37,12 @@ gem 'jbuilder', '2.0'
 gem 'sdoc', '0.4.0',          group: :doc
 
 
-
 # Use devise for user authentication
 gem 'devise', '3.4.1'
 
-# Use paperclip for image uploadsfi
+# Use paperclip for image uploads
 gem 'paperclip', '4.2.1'
+gem 'aws-sdk'
 
 # Use figaro for saving environmental variables
 gem 'figaro'
