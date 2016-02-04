@@ -32,7 +32,6 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
-
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
