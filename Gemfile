@@ -1,5 +1,7 @@
 ####Gemfile
 source 'https://rubygems.org'
+# Use ruby as coding language
+ruby "2.3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
