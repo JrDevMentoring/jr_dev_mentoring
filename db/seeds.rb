@@ -5,9 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Plan.delete_all
-['mentor', 'mentee'].each do |plan_name|
-  Plan.create(
-    name: plan_name
-  )
+if Plan.count < 2
+  Plan.delete_all
+  ['mentor', 'mentee'].each do |plan_name|
+    Plan.create(
+      name: plan_name
+    )
+  end
+end
+
+
+unless AdminUser.count != 0
+  AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 end

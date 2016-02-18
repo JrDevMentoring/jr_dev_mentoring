@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < AuthenticationController
   
   layout :choose_layout
   

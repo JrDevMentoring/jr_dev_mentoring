@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class ContactsController < AuthenticationController
   
   skip_before_action :authenticate_user!
   

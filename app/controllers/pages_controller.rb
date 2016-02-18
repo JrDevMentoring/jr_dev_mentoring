@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < AuthenticationController
   
   skip_before_action :authenticate_user!
   

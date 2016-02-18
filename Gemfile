@@ -49,12 +49,14 @@ gem 'aws-sdk', '< 2.0'
 # Use figaro for saving environmental variables
 gem 'figaro'
 
+gem 'activeadmin', '~> 1.0.0.pre1'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-
+  # gem 'sqlite3'
+  gem 'pg'
   gem 'simplecov', :require => false
 
   #Use to create attributes for objects
@@ -80,6 +82,5 @@ end
 
 # Use postgresql as the database for production
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
