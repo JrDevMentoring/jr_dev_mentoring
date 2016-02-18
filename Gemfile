@@ -50,13 +50,14 @@ gem 'aws-sdk', '< 2.0'
 gem 'figaro'
 
 gem 'activeadmin', '~> 1.0.0.pre1'
+gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # Use sqlite3 as the database for Active Record
   # gem 'sqlite3'
-  gem 'pg'
+
   gem 'simplecov', :require => false
 
   #Use to create attributes for objects
