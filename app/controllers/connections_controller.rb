@@ -1,4 +1,6 @@
 class ConnectionsController < AuthenticationController
+  before_action :ensure_profile_availability
+
   def new
     connections_profile = Profile.find(params[:profile_id])
     requester_name = current_user.profile.first_name + " " + current_user.profile.last_name
@@ -18,4 +20,8 @@ class ConnectionsController < AuthenticationController
     def connection_params
       params.require(:connection).permit(:your_name, :email, :connections_name)
     end
+
+  def ensure_profile_availability
+    redirect_to :back, alert: "Kindly create a profile before connecting with someone on the community."
+  end
 end
