@@ -22,6 +22,7 @@ class ConnectionsController < AuthenticationController
     end
 
   def ensure_profile_availability
-    redirect_to :back, alert: "Kindly create a profile before connecting with someone on the community." unless current_user.profile
+    flash[:danger] = "Please create a profile in order to connect with someone in the community."
+    redirect_to :back unless current_user.profile
   end
 end
