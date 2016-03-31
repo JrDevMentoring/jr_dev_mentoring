@@ -1,5 +1,5 @@
 class ConnectionMailer < ActionMailer::Base
-  default to: 'kimmcrayton@gmail.com'
+  default to: 'connections@jrdevmentoring.com'
 
   def connection_email(requester_name, requester_email, requested_name, requested_email)
     @requester_name = requester_name
