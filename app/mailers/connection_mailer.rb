@@ -8,5 +8,4 @@ class ConnectionMailer < ActionMailer::Base
     @requested_email = requested_email
     mail(from: requester_email, subject: 'Jr. Dev Mentoring Connect Form Message')
   end
-end(
-)
+end
