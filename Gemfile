@@ -13,7 +13,7 @@ gem 'bootstrap-sass', '3.3.1'
 gem "autoprefixer-rails"
 
 # Use rollbar to identify errors
-gem 'rollbar', '~> 2.8', '>= 2.8.3'
+gem 'rollbar', '2.11.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.3'
