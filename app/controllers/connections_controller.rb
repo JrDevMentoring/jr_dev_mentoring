@@ -9,6 +9,7 @@ class ConnectionsController < AuthenticationController
     requested_email = connections_profile.contact_email
 
     if ConnectionMailer.connection_email(requester_name, requester_email, requested_name, requested_email).deliver
+      ConnectionMailer.connection_email_copy(requester_name, requester_email, requested_name, requested_email).deliver
       flash[:success] = "Message sent. Someone at Jr. Dev Mentoring will respond to your message soon. Thank you."
     else
       flash[:danger] = "Error occurred, message has not been sent. Please try again."

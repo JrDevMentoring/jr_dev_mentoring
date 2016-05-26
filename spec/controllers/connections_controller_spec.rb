@@ -25,7 +25,7 @@ describe ConnectionsController do
       user.profile = @profile
       user.save
       sign_in user
-      expect{ get :new, profile_id: @profile.id }.to change{ ActionMailer::Base.deliveries.count }.by(1)
+      expect{ get :new, profile_id: @profile.id }.to change{ ActionMailer::Base.deliveries.count }.by(2)
     end
 
   end
