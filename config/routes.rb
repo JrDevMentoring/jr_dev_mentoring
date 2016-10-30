@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   end
   root 'pages#home'
 
+	match '*path', :to => 'application#routing_error', via: [:get, :post]
 end
