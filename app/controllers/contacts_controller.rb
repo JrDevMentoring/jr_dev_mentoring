@@ -13,7 +13,7 @@ class ContactsController < AuthenticationController
       email = params[:contact][:email]
       body = params[:contact][:comments]
       
-      ContactMailer.contact_email(name, email, body).deliver
+      ContactMailer.contact_email(name, email, body).deliver_now
       flash[:success] = "Message sent. Someone at Jr. Dev Mentoring will respond to your message soon. Thank you."
       redirect_to new_contact_path
     else
