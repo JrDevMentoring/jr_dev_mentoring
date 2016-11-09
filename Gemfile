@@ -21,23 +21,13 @@ gem 'sass-rails', '4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
+# Use CoffeeScript for .js.coffee assets and views<<<<<<< HEAD
 gem 'coffee-rails', '~> 4.1', '>= 4.1.1'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.0'
-
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '0.4.0',          group: :doc
-
 
 # Use devise for user authentication
 gem 'devise'
@@ -54,10 +44,6 @@ gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
-
-  # Use sqlite3 as the database for Active Record
-  # gem 'sqlite3'
-
   gem 'simplecov', :require => false
 
   #Use to create attributes for objects
@@ -76,9 +62,10 @@ end
 group :development do
   #Use letter open to test emails in developed environment
   gem 'letter_opener'
+end
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  #gem 'spring'
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
 end
 
 # Use postgresql as the database for production

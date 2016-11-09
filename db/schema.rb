@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218152625) do
+ActiveRecord::Schema.define(version: 20161109170728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,18 @@ ActiveRecord::Schema.define(version: 20160218152625) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "internships", force: :cascade do |t|
+    t.string   "title",            limit: 255
+    t.string   "description",      limit: 255
+    t.string   "application_link", limit: 255
+    t.date     "deadline"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "internships", ["user_id"], name: "index_internships_on_user_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
