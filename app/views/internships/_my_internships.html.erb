@@ -1,0 +1,29 @@
+<% if internships.empty? %>
+  <div class='alert alert-warning text-center'>No internships available in this category</div>
+<% else %>
+  <div class="table-responsive">
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th width="20%">Title</th>
+          <th width="40%">Description</th>
+          <th width="15%">Deadline</th>
+          <th colspan="2" width="25%">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% internships.each do |internship| %>
+          <tr>
+            <td><%= internship.title %></td>
+            <td><%= internship.description %></td>
+            <td><%= internship.deadline %></td>
+
+            <td><%= link_to 'Edit', edit_internship_path(internship) %></td>
+            <td><%= link_to 'Destroy', internship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

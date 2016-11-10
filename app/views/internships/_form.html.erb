@@ -1,0 +1,7 @@
+<%= simple_form_for @internship do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :application_link, label: 'Link to application page' %>
+  <%= f.input :deadline %>
+  <%= f.button :submit, 'Post' %>
+<% end %>

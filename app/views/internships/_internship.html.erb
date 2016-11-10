@@ -1,0 +1,9 @@
+<tr>
+  <td><%= internship.title %></td>
+  <td><%= internship.description %></td>
+  <td><%= internship.deadline %></td>
+
+  <% if internship.active? %>
+    <td><%= link_to 'View to apply', internship.application_link, target: '_blank' %></td>
+  <% end %>
+</tr>

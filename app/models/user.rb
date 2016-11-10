@@ -3,14 +3,16 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-       
+
   belongs_to :plan
   has_one :profile
+
+  has_many :internships, dependent: :destroy
 
   def self.mentees
     User.joins(:profile, :plan).where("plans.name='mentee' and profiles.not_available=?", false)
   end
-  
+
   def self.mentors
     User.joins(:profile, :plan).where("plans.name='mentor' and profiles.not_available=?", false)
   end
