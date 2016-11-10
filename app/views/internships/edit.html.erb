@@ -1,6 +1,11 @@
-<h1>Editing internship</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center">Edit internship position</h1>
+      <div class="well">
+        <%= render 'form' %>
+      </div>
+  </div>
+</div>
 
-<%= render 'form' %>
+<div class="text-center"><%= link_to 'Back', internships_path, class: 'btn btn-primary' %></div>
 
-<%= link_to 'Show', @internship %> |
-<%= link_to 'Back', internships_path %>
