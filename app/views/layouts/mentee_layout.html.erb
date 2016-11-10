@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>JrDevMentoring</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render 'layouts/header', community: mentee_mentor_profiles_path, root: mentee_root_path, account: edit_user_registration_path %>
-<div class="container">  
-  <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: "alert alert-#{key}" %>
-  <% end %>
-  
-  <%= yield %>
-</div>
+  <head>
+    <title>JrDevMentoring</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <%= render 'layouts/header', community: mentee_mentor_profiles_path, root: mentee_root_path, account: edit_user_registration_path %>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "alert alert-#{key}" %>
+    <% end %>
 
-</body>
+    <%= yield %>
+  </div>
+
+  </body>
 </html>

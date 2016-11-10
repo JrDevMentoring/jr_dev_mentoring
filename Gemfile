@@ -41,6 +41,7 @@ gem 'figaro'
 
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'pg'
+gem 'simple_form'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

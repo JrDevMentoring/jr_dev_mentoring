@@ -1,17 +1,6 @@
-<%= form_for(@internship) do |f| %>
-  <% if @internship.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@internship.errors.count, "error") %> prohibited this internship from being saved:</h2>
-
-      <ul>
-      <% @internship.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= simple_form_for @internship do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :application_link, label: 'Link to application page' %>
+  <%= f.button :submit, 'Post position' %>
 <% end %>
