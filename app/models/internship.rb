@@ -6,4 +6,7 @@ class Internship < ActiveRecord::Base
   scope :active, -> { where('deadline > ?', Date.today) }
   scope :expired, -> { where('deadline < ?', Date.today) }
 
+  def active?
+    deadline > Date.today
+  end
 end
