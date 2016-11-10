@@ -3,4 +3,7 @@ class Internship < ActiveRecord::Base
 
   validates_presence_of :title, :description, :deadline, :application_link, :user
 
+  scope :active, -> { where('deadline > ?', Date.today) }
+  scope :expired, -> { where('deadline < ?', Date.today) }
+
 end

@@ -1,19 +1,17 @@
 <p class='text-right'>Do you have an internship position that you'll like to post here? <%= link_to 'Create One', new_internship_path, class: 'btn btn-success' %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#active" aria-controls="active" role="tab" data-toggle="tab">Active positions</a></li>
+    <li role="presentation"><a href="#expired" aria-controls="expired" role="tab" data-toggle="tab">Expired positions</a></li>
+    <li role="presentation"><a href="#mine" aria-controls="mine" role="tab" data-toggle="tab">Created by me</a></li>
+  </ul>
 
-  <tbody>
-    <% @internships.each do |internship| %>
-      <tr>
-        <td><%= link_to 'Show', internship %></td>
-        <td><%= link_to 'Edit', edit_internship_path(internship) %></td>
-        <td><%= link_to 'Destroy', internship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="active"><%= render 'internships', internships: @active_internships %></div>
+    <div role="tabpanel" class="tab-pane" id="expired"><%= render 'internships', internships: @expired_internships %></div>
+    <div role="tabpanel" class="tab-pane" id="mine"><%= render 'my_internships', internships: @my_internships %></div>
+  </div>
+</div>

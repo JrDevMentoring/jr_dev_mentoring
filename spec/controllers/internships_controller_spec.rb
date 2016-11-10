@@ -11,22 +11,15 @@ RSpec.describe InternshipsController, type: :controller do
   }
 
   before do
-    sign_in(create(:user))
+    @user = create(:user)
+    sign_in @user
   end
 
   describe "GET #index" do
-    it "assigns all internships as @internships" do
-      internship = create(:internship)
+    it "assigns my internships as @my_internships" do
+      internship = create(:internship, user: @user)
       get :index
-      expect(assigns(:internships)).to eq([internship])
-    end
-  end
-
-  describe "GET #show" do
-    it "assigns the requested internship as @internship" do
-      internship = create(:internship)
-      get :show, {:id => internship.to_param}
-      expect(assigns(:internship)).to eq(internship)
+      expect(assigns[:my_internships]).to eq([internship])
     end
   end
 
@@ -59,9 +52,9 @@ RSpec.describe InternshipsController, type: :controller do
         expect(assigns(:internship)).to be_persisted
       end
 
-      it "redirects to the created internship" do
+      it "redirects to the internships_url" do
         post :create, {:internship => valid_attributes}
-        expect(response).to redirect_to(Internship.last)
+        expect(response).to redirect_to(internships_url)
       end
     end
 
@@ -97,10 +90,10 @@ RSpec.describe InternshipsController, type: :controller do
         expect(assigns(:internship)).to eq(internship)
       end
 
-      it "redirects to the internship" do
+      it "redirects to the internships_url" do
         internship = create(:internship)
         put :update, {:id => internship.to_param, :internship => valid_attributes}
-        expect(response).to redirect_to(internship)
+        expect(response).to redirect_to(internships_url)
       end
     end
 

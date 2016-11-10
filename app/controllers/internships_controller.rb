@@ -1,15 +1,12 @@
-class InternshipsController < ApplicationController
+class InternshipsController < AuthenticationController
   before_action :set_internship, only: [:show, :edit, :update, :destroy]
 
   # GET /internships
   # GET /internships.json
   def index
-    @internships = Internship.all
-  end
-
-  # GET /internships/1
-  # GET /internships/1.json
-  def show
+    @active_internships = Internship.active
+    @expired_internships = Internship.expired
+    @my_internships = current_user.internships
   end
 
   # GET /internships/new
@@ -28,8 +25,7 @@ class InternshipsController < ApplicationController
 
     respond_to do |format|
       if @internship.save
-        format.html { redirect_to @internship, notice: 'Internship was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @internship }
+        format.html { redirect_to internships_url, notice: 'Internship was successfully created.' }
       else
         format.html { render action: 'new' }
         format.json { render json: @internship.errors, status: :unprocessable_entity }
@@ -42,8 +38,7 @@ class InternshipsController < ApplicationController
   def update
     respond_to do |format|
       if @internship.update(internship_params)
-        format.html { redirect_to @internship, notice: 'Internship was successfully updated.' }
-        format.json { render action: 'show', status: :ok, location: @internship }
+        format.html { redirect_to internships_url, notice: 'Internship was successfully updated.' }
       else
         format.html { render action: 'edit' }
         format.json { render json: @internship.errors, status: :unprocessable_entity }
