@@ -4,6 +4,6 @@ class Mentee::PagesController < Mentee::MenteeController
   end
 
   def authenticate_sign_in!
-    redirect_to :back unless current_user
+    redirect_to root_path, alert: 'You are not signed in...' unless current_user
   end
 end

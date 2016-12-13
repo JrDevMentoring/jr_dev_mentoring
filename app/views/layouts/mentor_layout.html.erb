@@ -8,11 +8,8 @@
 </head>
 <body>
 <%= render 'layouts/header', community: mentor_mentee_profiles_path, root: mentor_root_path, account: edit_user_registration_path %>
-<div class="container">  
-  <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: "alert alert-#{key}" %>
-  <% end %>
-  
+<div class="container">
+  <%= render 'layouts/flash_notice' flash: flash %>
   <%= yield %>
 </div>
 

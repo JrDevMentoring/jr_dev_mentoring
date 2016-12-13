@@ -8,11 +8,8 @@
 </head>
 <body>
 <%= render "layouts/header", root: root_path, community: nil %>
-<div class="container">  
-  <% flash.each do |key, value| %>
-    <%= content_tag :div, value, class: "alert alert-#{key}" %>
-  <% end %>
-  
+<div class="container">
+  <%= render 'layouts/flash_notice', flash: flash %>
   <%= yield %>
 </div>
 
