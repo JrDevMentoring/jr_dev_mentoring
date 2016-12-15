@@ -9,7 +9,7 @@
   <body>
   <%= render 'layouts/header', community: mentee_mentor_profiles_path, root: mentee_root_path, account: edit_user_registration_path %>
   <div class="container">
-    <%= render 'layouts/flash_notice' flash: flash %>
+    <%= render 'layouts/flash_notice', flash: flash %>
     <%= yield %>
   </div>
 
