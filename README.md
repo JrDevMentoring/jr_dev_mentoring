@@ -26,7 +26,7 @@ The Continous Integration testing has CI-status has shown above. However, to run
 
 ### Contributing
 
-Please read the [Contribution Guide](https://github.com/kmcrayton7/jr_dev_mentoring/blob/develop/CONTRIBUTING.md) for details on the process for submitting pull requests to us.
+Please read the [Contribution Guide](https://github.com/kmcrayton7/jr_dev_mentoring/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests to us.
 
 ### License
 
