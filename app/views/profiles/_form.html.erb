@@ -42,10 +42,13 @@
       <%= f.label :bio, 'Bio (1000 character limit)' %>
       <%= f.text_area :bio, class: 'form-control' %>
     </div>
-    <div class="form-group">
-      <%= f.label :mentoring_needs, ' What are your mentoring needs? (Mentees ONLY - 1000 character limit)' %>
-      <%= f.text_area :mentoring_needs, class: 'form-control' %>
-    </div>
+    <% if @user.mentee? %>
+      <div class="form-group">
+        <%= f.label :mentoring_needs, ' What are your mentoring needs? (Mentees ONLY - 1000 character limit)' %>
+        <%= f.text_area :mentoring_needs, class: 'form-control' %>
+      </div>
+    <% end %>
+
     <div class="form-group">
       <%= f.submit "Update Profile", class: 'btn btn-primary' %>
     </div>
