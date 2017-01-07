@@ -14,6 +14,6 @@ class Profile < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def user_is_mentor?
-    user.mentor?
+    user.try(:mentor?)
   end
 end
