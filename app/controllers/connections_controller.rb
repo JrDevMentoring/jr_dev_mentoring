@@ -22,8 +22,11 @@ class ConnectionsController < AuthenticationController
       params.require(:connection).permit(:your_name, :email, :connections_name)
     end
 
-  def ensure_profile_availability
-    flash[:danger] = "Please create a profile in order to connect with someone in the community."
-    redirect_to :back unless current_user.profile
-  end
+    def ensure_profile_availability
+      if current_user.profile.nil?
+        redirect_to :back, flash: {
+          danger: "Please create a profile in order to connect with someone in the community."
+        }
+      end
+    end
 end
