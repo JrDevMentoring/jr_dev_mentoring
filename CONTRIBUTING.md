@@ -12,7 +12,7 @@ We are also happy to accept contributions of any kind, including feedback and id
 
 You can create a new issue for it on the [issues page](https://github.com/kmcrayton7/jr_dev_mentoring/issues) after checking to make sure that someone else has not reported the same issue.
 
-##### *Kindly open all PRs to the `development` branch of the project.*
+##### *Kindly open all PRs to the `dev` branch of the project.*
 
 ## License
 
