@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
   def self.mentors
     User.joins(:profile, :plan).where("plans.name='mentor' and profiles.not_available=?", false)
   end
+
+  def mentor?
+    plan.try(:name) == "mentor"
+  end
+
+  def mentee?
+    plan.try(:name) == "mentee"
+  end
 end

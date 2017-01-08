@@ -1,7 +1,7 @@
 <%= form_for @profile, url: user_profile_path, :html => { :multipart => true } do |f| %>
     <div class="form-group">
-      <%= f.label :not_available do %> 
-      <%= f.check_box :not_available %> 
+      <%= f.label :not_available do %>
+      <%= f.check_box :not_available %>
       I am NOT available
       <% end %>
     </div>
@@ -29,7 +29,7 @@
       <%= f.label :state %>
       <%= f.text_field :state, class: 'form-control' %>
     </div>
-    
+
     <div class="form-group">
       <%= f.label :country %>
       <%= f.text_field :country, class: 'form-control' %>
@@ -42,10 +42,13 @@
       <%= f.label :bio, 'Bio (1000 character limit)' %>
       <%= f.text_area :bio, class: 'form-control' %>
     </div>
-    <div class="form-group">
-      <%= f.label :mentoring_needs, ' What are your mentoring needs? (Mentees ONLY - 1000 character limit)' %>
-      <%= f.text_area :mentoring_needs, class: 'form-control' %>
-    </div>
+    <% if @user.mentee? %>
+      <div class="form-group">
+        <%= f.label :mentoring_needs, ' What are your mentoring needs? (Mentees ONLY - 1000 character limit)' %>
+        <%= f.text_area :mentoring_needs, class: 'form-control' %>
+      </div>
+    <% end %>
+
     <div class="form-group">
       <%= f.submit "Update Profile", class: 'btn btn-primary' %>
     </div>
