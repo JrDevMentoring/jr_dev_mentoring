@@ -7,7 +7,7 @@ class ProfilesController < AuthenticationController
     @user = User.find( params[:user_id] )
     @profile = Profile.new
   end
-  def create 
+  def create
     @user = User.find( params[:user_id] )
     @profile = @user.build_profile(profile_params)
     if @profile.save
