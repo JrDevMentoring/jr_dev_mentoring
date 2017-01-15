@@ -14,8 +14,8 @@ class ProfilesController < AuthenticationController
       flash[:success] = "Profile Updated!"
       redirect_to user_path( @user )
     else
-        flash[:danger] = "An error occurred and your profile has not been updated. You must complete all form fields."
-        render action: :new
+      flash[:danger] = "An error occurred and your profile has not been updated. You must complete all form fields."
+      render action: :new
     end
   end
   def edit

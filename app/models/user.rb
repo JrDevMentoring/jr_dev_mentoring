@@ -34,6 +34,12 @@ class User < ActiveRecord::Base
     plan_types.include? 'mentee'
   end
 
+  PLAN_TYPES.each do |type|
+    define_method("#{type}?") do
+      plan_types.include? type
+    end
+  end
+
   def valid_plan_types
     errors.add(:plan_types, 'invalid plan entered') unless plan_types.empty? || PLAN_TYPES.include?(*plan_types)
   end

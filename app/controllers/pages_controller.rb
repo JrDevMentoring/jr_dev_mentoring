@@ -4,8 +4,6 @@ class PagesController < AuthenticationController
   before_action :redirect_if_current_user
 
   def home
-    @mentor_plan = Plan.find_by_name('mentor')
-    @mentee_plan = Plan.find_by_name('mentee')
   end
 
   def about

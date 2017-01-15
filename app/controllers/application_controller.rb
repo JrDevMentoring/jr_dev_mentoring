@@ -16,11 +16,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) ||
-    if current_user.plan.name == "mentor"
-      mentor_root_path
-    elsif current_user.plan.name == "mentee"
-      mentee_root_path
-    end
+      current_user.mentee? ? mentee_root_path : mentor_root_path
   end
 
   def after_sign_out_path_for(resource)
@@ -30,11 +26,7 @@ class ApplicationController < ActionController::Base
   private
   def choose_layout
     return "application" if current_user.nil?
-    if current_user.plan.name == 'mentor'
-      'mentor_layout'
-    elsif current_user.plan.name == 'mentee'
-      'mentee_layout'
-    end
+    current_user.mentee? ? 'mentee_layout' : 'mentor_layout'
   end
 end
 

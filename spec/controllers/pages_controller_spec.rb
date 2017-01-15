@@ -3,9 +3,9 @@ require 'rails_helper'
 describe PagesController do
 
   before :each do
-    @mentor_plan = FactoryGirl.create(:plan, :mentor)
-    @user = FactoryGirl.create(:user, plan: @mentor_plan)
+    @user = FactoryGirl.create(:user, :mentor)
   end
+
   describe 'not signed in' do
     it 'should be a success' do
       [:home, :about].each do |action|
@@ -24,7 +24,6 @@ describe PagesController do
   end
   describe 'GET #home' do
     before do
-      @mentee_plan = FactoryGirl.create(:plan, :mentee)
       get :home
     end
     it 'should assign a mentor plan as mentor_plan' do
