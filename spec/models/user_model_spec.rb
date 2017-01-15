@@ -7,34 +7,11 @@ describe User do
   end
 
   describe "Validation" do
-    it "should test to see if Devise is requiring email" do
-      user = FactoryGirl.build(:user, email: nil)
-      expect{ user.save }.not_to change(User, :count)
-      expect(user.errors[:email]).to be_present
-    end
-
-    it "should test to see if Devise is requiring password" do
-      user = FactoryGirl.build(:user, password: nil)
-      expect{ user.save }.not_to change User, :count
-      expect(user.errors[:password]).to be_present
-    end
-
-    it "should allow the provided email and password to be saved to the database" do
-      user = FactoryGirl.build(:user)
-      expect{user.save}.to change(User, :count).by(1)
-      expect(user.errors[:email]).not_to be_present
-      expect(user.errors[:password]).not_to be_present
-    end
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:password) }
   end
 
   describe "Association" do
-    describe "plan" do
-      it 'belong_to a user' do
-        plan = FactoryGirl.create(:plan, :mentor)
-        user = FactoryGirl.build(:user, plan: plan)
-        expect(user.plan.name).to eq "mentor"
-      end
-    end
     describe "profile" do
       it "user has_one" do
         profile = FactoryGirl.create(:profile)
@@ -46,11 +23,8 @@ describe User do
 
   describe "ClassMethods" do
     before :all do
-      mentor_plan = FactoryGirl.create(:plan, :mentor)
-      mentee_plan = FactoryGirl.create(:plan, :mentee)
-
-      @mentors = FactoryGirl.create_list(:user, 3, plan: mentor_plan)
-      @mentees = FactoryGirl.create_list(:user, 4, plan: mentee_plan)
+      @mentors = create_list(:user, 3, :mentor)
+      @mentees = create_list(:user, 4, :mentee)
 
       @mentors.each_with_index do |mentor, index|
         not_available = (index == 0 ? true : false)
