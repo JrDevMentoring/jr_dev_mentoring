@@ -8,29 +8,10 @@ describe Profile do
   end
 
   describe "Validation" do
-    it "should test to see if first_name is present" do
-      profile = FactoryGirl.build(:profile, first_name: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:first_name]).to be_present
-    end
-
-    it "should test to see if last_name is present" do
-      profile = FactoryGirl.build(:profile, last_name: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:last_name]).to be_present
-    end
-
-    it "should test to see if email is present" do
-      profile = FactoryGirl.build(:profile, contact_email: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:contact_email]).to be_present
-    end
-
-    it "should test to see if bio is present" do
-      profile = FactoryGirl.build(:profile, bio: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:bio]).to be_present
-    end
+    it { is_expected.to validate_presence_of :first_name }
+    it { is_expected.to validate_presence_of :last_name }
+    it { is_expected.to validate_presence_of :contact_email }
+    it { is_expected.to validate_presence_of :bio }
 
     it "should test to see if mentoring_needs is present" do
       profile = FactoryGirl.build(:profile, mentoring_needs: nil)

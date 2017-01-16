@@ -41,6 +41,8 @@ class User < ActiveRecord::Base
   end
 
   def valid_plan_types
-    errors.add(:plan_types, 'invalid plan entered') unless plan_types.empty? || PLAN_TYPES.include?(*plan_types)
+    plan_types.each do |type|
+      errors.add(:plan_types, 'invalid plan entered') unless PLAN_TYPES.include? type
+    end
   end
 end

@@ -23,6 +23,8 @@ FactoryGirl.define do
     coding_languages { Faker::Lorem.sentence }
     bio { Faker::Lorem.paragraph }
     mentoring_needs { Faker::Lorem.sentence }
+
+    association :user, :mentee
   end
 
   factory :contact do
