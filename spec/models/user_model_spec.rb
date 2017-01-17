@@ -21,19 +21,43 @@ describe User do
     end
   end
 
+  describe '#mentor?' do
+    it 'is true for user with a mentor profile plan' do
+      user = create(:profile, :mentor).user
+      expect(user.mentor?).to be_truthy
+    end
+
+    it 'is false for user with no mentor profile plan' do
+      user = create(:profile).user
+      expect(user.mentor?).to be_falsey
+    end
+  end
+
+  describe '#mentee?' do
+    it 'is true for user with a mentee profile plan' do
+      user = create(:profile, :mentee).user
+      expect(user.mentee?).to be_truthy
+    end
+
+    it 'is false for user with no mentee profile plan' do
+      user = create(:profile).user
+      expect(user.mentee?).to be_falsey
+    end
+  end
+
   describe "ClassMethods" do
     before :all do
-      @mentors = create_list(:user, 3, :mentor)
-      @mentees = create_list(:user, 4, :mentee)
+      @mentors = create_list(:user, 3)
+      @mentees = create_list(:user, 4)
 
       @mentors.each_with_index do |mentor, index|
         not_available = (index == 0 ? true : false)
-        FactoryGirl.create(:profile, user: mentor, not_available: not_available)
+        FactoryGirl.create(:profile, :mentor, user: mentor, not_available: not_available)
       end
 
       @mentees.each_with_index do |mentee, index|
         not_available = (index == 0 ? true : false)
-        FactoryGirl.create(:profile, user: mentee, not_available: not_available)
+        FactoryGirl.create(:profile, :mentee, user: mentee, not_available: not_available)
       end
 
       @available_mentors = User.mentors
@@ -58,6 +82,7 @@ describe User do
       end
 
     end
+
     describe "#Mentees" do
       it "lists all available mentees" do
         expect(@available_mentees.count).to eq 3

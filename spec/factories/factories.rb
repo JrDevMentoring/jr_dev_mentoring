@@ -2,6 +2,17 @@ FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
     password { Faker::Internet.password }
+  end
+
+  factory :profile do
+    first_name { Faker::Name.first_name }
+    last_name { Faker::Name.last_name }
+    contact_email { Faker::Internet.email }
+    coding_languages { Faker::Lorem.sentence }
+    bio { Faker::Lorem.paragraph }
+    mentoring_needs { Faker::Lorem.sentence }
+
+    association :user
 
     trait :mentor do
       after(:build) do |instance|
@@ -14,17 +25,6 @@ FactoryGirl.define do
         instance.plan_types << 'mentee'
       end
     end
-  end
-
-  factory :profile do
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name }
-    contact_email { Faker::Internet.email }
-    coding_languages { Faker::Lorem.sentence }
-    bio { Faker::Lorem.paragraph }
-    mentoring_needs { Faker::Lorem.sentence }
-
-    association :user, :mentee
   end
 
   factory :contact do

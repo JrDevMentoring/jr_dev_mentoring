@@ -3,7 +3,7 @@ require 'rails_helper'
 describe PagesController do
 
   before :each do
-    @user = create(:user, :mentor)
+    @user = create(:user)
   end
 
   describe 'not signed in' do

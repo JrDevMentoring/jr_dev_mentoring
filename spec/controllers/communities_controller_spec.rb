@@ -12,22 +12,22 @@ describe CommunitiesController do
 
     describe 'for authenticated user' do
       before :each do
-        mentors = create_list(:user, 3, :mentor)
-        mentees = create_list(:user, 4, :mentee)
+        mentors = create_list(:user, 3)
+        mentees = create_list(:user, 4)
 
         mentors.each do |mentor|
-          FactoryGirl.create(:profile, user: mentor)
+          FactoryGirl.create(:profile, :mentor, user: mentor)
         end
 
         mentees.each do |mentee|
-          FactoryGirl.create(:profile, user: mentee)
+          FactoryGirl.create(:profile, :mentee, user: mentee)
         end
 
         @available_mentors = User.mentors
         @available_mentees = User.mentees
 
 
-        user = create(:user)
+        user = create(:profile, plan_types: ['mentor', 'mentee']).user
         sign_in user
         get :index
       end

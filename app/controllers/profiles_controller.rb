@@ -34,7 +34,7 @@ class ProfilesController < AuthenticationController
   end
   private
     def profile_params
-      params.require(:profile).permit(:not_available, :first_name, :last_name, :avatar, :contact_email, :city, :state, :country, :coding_languages, :bio, :mentoring_needs)
+      params.require(:profile).permit(:not_available, :first_name, :last_name, :avatar, :contact_email, :city, :state, :country, :coding_languages, :bio, :mentoring_needs, plan_types: [])
     end
     def only_current_user
       @user = User.find( params[:user_id] )

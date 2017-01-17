@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20170115144700) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.boolean  "not_available",       default: false
+    t.string   "plan_types",          default: [],    array: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,7 +103,6 @@ ActiveRecord::Schema.define(version: 20170115144700) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "plan_types",             default: [],              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

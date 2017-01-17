@@ -1,10 +1,10 @@
 class DropPlans < ActiveRecord::Migration
   def change
-    add_column :users, :plan_types, :string, array: true, default: []
+    add_column :profiles, :plan_types, :string, array: true, default: []
 
     User.find_in_batches do |users|
       users.each do |user|
-        user.update_column(:plan_types, user.plan.name)
+        user.profile.update_column(:plan_types, [user.plan.name])
       end
     end
 
