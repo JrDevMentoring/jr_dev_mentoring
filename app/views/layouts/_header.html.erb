@@ -7,7 +7,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'JrDevMentoring', root, class: 'navbar-brand' %>
+      <%= link_to 'JrDevMentoring', root_path, class: 'navbar-brand' %>
     </div>
     <div class="collapse navbar-collapse" id="main-nav-collapse">
       <div class="nav navbar-nav navbar-right">
@@ -18,10 +18,10 @@
         <% end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <% if community %>
-          <li><%= link_to "Community", community %></li>
-        <% end %>
         <% if current_user %>
+          <% if current_user.mentor? || current_user.mentee? %>
+            <li><%= link_to "Community", communities_path %></li>
+          <% end %>
           <li><%= link_to "Internships", internships_path %></li>
           <li><%= link_to "My Account", edit_user_registration_path %></li>
         <% end %>

@@ -1,0 +1,46 @@
+<div class='jumbotron text-center'>
+  <h1>Welcome to Jr. Dev Mentoring</h1>
+  <h3>Mentee</h3>
+</div>
+<div class='row'>
+  <% if current_user.profile %>
+    <% if current_user.mentee? && current_user.mentor? %>
+      <div class='col-md-6'>
+        <%= render partial: 'mentor_partial' %>
+      </div>
+      <div class='col-md-6'>
+        <%= render partial: 'mentee_partial' %>
+      </div>
+      <div class='col-md-12'>
+        <%= render partial: 'profiles_partial' %>
+      </div>
+    <% elsif current_user.mentee? || current_user.mentor? %>
+      <div class='col-md-6'>
+        <% if current_user.mentee? %>
+          <%= render partial: 'mentee_partial' %>
+        <% else %>
+          <%= render partial: 'mentor_partial' %>
+        <% end %>
+      </div>
+      <div class='col-md-6'>
+        <%= render partial: 'profiles_partial' %>
+      </div>
+    <% else %>
+      <div class='col-md-12'>
+        <%= render partial: 'profiles_partial' %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-8 col-md-offset-2'>
+          <div class='well'>
+            <p class='text-center'>Create your profile so that you can be matched with someone in the Jr. Dev Mentoring community.</p>
+            <%= link_to 'Create your profile', new_user_profile_path(current_user), class: 'btn btn-default btn-lg btn-block'%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>

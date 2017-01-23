@@ -14,8 +14,8 @@ class ProfilesController < AuthenticationController
       flash[:success] = "Profile Updated!"
       redirect_to user_path( @user )
     else
-        flash[:danger] = "An error occurred and your profile has not been updated. You must complete all form fields."
-        render action: :new
+      flash[:danger] = "An error occurred and your profile has not been updated. You must complete all form fields."
+      render action: :new
     end
   end
   def edit
@@ -34,7 +34,7 @@ class ProfilesController < AuthenticationController
   end
   private
     def profile_params
-      params.require(:profile).permit(:not_available, :first_name, :last_name, :avatar, :contact_email, :city, :state, :country, :coding_languages, :bio, :mentoring_needs)
+      params.require(:profile).permit(:not_available, :first_name, :last_name, :avatar, :contact_email, :city, :state, :country, :coding_languages, :bio, :mentoring_needs, plan_types: [])
     end
     def only_current_user
       @user = User.find( params[:user_id] )
