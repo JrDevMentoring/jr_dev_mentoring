@@ -8,32 +8,13 @@ describe Profile do
   end
 
   describe "Validation" do
-    it "should test to see if first_name is present" do
-      profile = FactoryGirl.build(:profile, first_name: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:first_name]).to be_present
-    end
+    it { is_expected.to validate_presence_of :first_name }
+    it { is_expected.to validate_presence_of :last_name }
+    it { is_expected.to validate_presence_of :contact_email }
+    it { is_expected.to validate_presence_of :bio }
 
-    it "should test to see if last_name is present" do
-      profile = FactoryGirl.build(:profile, last_name: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:last_name]).to be_present
-    end
-
-    it "should test to see if email is present" do
-      profile = FactoryGirl.build(:profile, contact_email: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:contact_email]).to be_present
-    end
-
-    it "should test to see if bio is present" do
-      profile = FactoryGirl.build(:profile, bio: nil)
-      expect{ profile.save }.not_to change(Profile, :count)
-      expect(profile.errors[:bio]).to be_present
-    end
-
-    it "should test to see if mentoring_needs is present" do
-      profile = FactoryGirl.build(:profile, mentoring_needs: nil)
+    it "should test to see if mentoring_needs is present for mentees" do
+      profile = FactoryGirl.build(:profile, :mentee, mentoring_needs: nil)
       expect{ profile.save }.not_to change(Profile, :count)
       expect(profile.errors[:mentoring_needs]).to be_present
     end
@@ -51,13 +32,13 @@ describe Profile do
     end
 
     it "should test to see if the user's input for mentoring_needs meets the required min of 1" do
-      profile = FactoryGirl.build(:profile, mentoring_needs: "")
+      profile = FactoryGirl.build(:profile, :mentee, mentoring_needs: "")
       expect{ profile.save }.not_to change(Profile, :count)
       expect(profile.errors[:mentoring_needs]).to be_present
     end
 
     it "should test to see if the user's input for mentoring_needs meets the required max of 500" do
-      profile = FactoryGirl.build(:profile, mentoring_needs: SecureRandom.hex(251) )
+      profile = FactoryGirl.build(:profile, :mentee, mentoring_needs: SecureRandom.hex(251) )
       expect{ profile.save }.not_to change(Profile, :count)
       expect(profile.errors[:mentoring_needs]).to be_present
     end
@@ -72,6 +53,30 @@ describe Profile do
       profile = FactoryGirl.build(:profile, bio: SecureRandom.hex(501) )
       expect{ profile.save }.not_to change(Profile, :count)
       expect(profile.errors[:bio]).to be_present
+    end
+  end
+
+  describe '#mentor?' do
+    it 'is true for user with a mentor profile plan' do
+      profile = create(:profile, :mentor)
+      expect(profile.mentor?).to be_truthy
+    end
+
+    it 'is false for user with no mentor profile plan' do
+      profile = create(:profile)
+      expect(profile.mentor?).to be_falsey
+    end
+  end
+
+  describe '#mentee?' do
+    it 'is true for user with a mentee profile plan' do
+      profile = create(:profile, :mentee)
+      expect(profile.mentee?).to be_truthy
+    end
+
+    it 'is false for user with no mentee profile plan' do
+      profile = create(:profile)
+      expect(profile.mentee?).to be_falsey
     end
   end
 

@@ -3,21 +3,21 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users,:controllers => { :registrations => "users/registrations" }
+  devise_for :users
+
   resources :users do
     resource :profile
   end
+
   get '/connections/new/:profile_id' => "connections#new", as: :new_connections
   resources :contacts
+  resources :communities, only: :index
   get '/about' => 'pages#about'
-  namespace :mentee do
-    root 'pages#home'
-    get '/mentor_profiles' => 'profiles#mentor_profiles'
+
+  authenticated :user do
+    root 'pages#dashboard', as: :authenticated_root
   end
-  namespace :mentor do
-    root 'pages#home'
-    get '/mentee_profiles' => 'profiles#mentee_profiles'
-  end
+
   root 'pages#home'
 
 	match '*path', :to => 'application#routing_error', via: [:get, :post]

@@ -1,0 +1,37 @@
+<div>
+  <% if @available_mentees.nil? || @available_mentees.empty? && @available_mentors.nil? || @available_mentors.empty? %>
+    <div class='alert alert-warning text-center'>No available mentor/mentee at the moment. Kindly check back later</div>
+  <% end %>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs">
+    <% if @available_mentees %>
+      <li role="presentation" class="active"><a href="#mentees" aria-controls="mentees" role="tab" data-toggle="tab">Mentees</a></li>
+    <% end %>
+
+    <% if @available_mentors %>
+      <li role="presentation"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+    <% end %>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    <% if @available_mentees %>
+      <div role="tabpanel" class="tab-pane active" id="mentees">
+        <%= render 'profiles/community_profile', users: @available_mentees, community_type: 'Mentees' %>
+      </div>
+    <% end %>
+
+    <% if @available_mentors %>
+      <% if @available_mentees.nil? %>
+        <div role="tabpanel" class="tab-pane active" id="mentors">
+      <% else %>
+        <div role="tabpanel" class="tab-pane" id="mentors">
+      <% end %>
+        <%= render 'profiles/community_profile', users: @available_mentors, community_type: 'Mentors' %>
+      </div>
+    <% end %>
+  </div>
+</div>
