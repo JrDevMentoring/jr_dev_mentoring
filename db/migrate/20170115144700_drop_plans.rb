@@ -4,6 +4,7 @@ class DropPlans < ActiveRecord::Migration
 
     User.find_in_batches do |users|
       users.each do |user|
+        next unless user.profile
         user.profile.update_column(:plan_types, [user.plan.name])
       end
     end
