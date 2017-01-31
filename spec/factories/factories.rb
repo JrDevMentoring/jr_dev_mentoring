@@ -11,6 +11,7 @@ FactoryGirl.define do
     coding_languages { Faker::Lorem.sentence }
     bio { Faker::Lorem.paragraph }
     mentoring_needs { Faker::Lorem.sentence }
+    plan_types []
 
     association :user
 
