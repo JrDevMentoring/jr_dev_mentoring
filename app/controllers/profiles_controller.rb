@@ -28,7 +28,6 @@ class ProfilesController < AuthenticationController
      flash[:success] = "Profile Updated!"
       redirect_to user_path( params[:user_id] )
     else
-      # binding.pry
      render action: :edit
     end
   end
