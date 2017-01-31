@@ -1,8 +1,4 @@
 <div>
-  <% if @available_mentees.nil? || @available_mentees.empty? && @available_mentors.nil? || @available_mentors.empty? %>
-    <div class='alert alert-warning text-center'>No available mentor/mentee at the moment. Kindly check back later</div>
-  <% end %>
-
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
     <% if @available_mentees %>
