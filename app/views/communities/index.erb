@@ -6,7 +6,11 @@
     <% end %>
 
     <% if @available_mentors %>
-      <li role="presentation"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+      <% if @available_mentees.nil? %>
+        <li role="presentation" class="active"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+      <% else %>
+        <li role="presentation"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+      <% end %>
     <% end %>
 
   </ul>
