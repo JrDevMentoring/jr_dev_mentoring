@@ -7,7 +7,7 @@
   </div>
 
   <div class="form-group">
-    <p>Select all plan types you'll love to have on the platform</p>
+    <p>Would you like to participate as a mentor, mentee, or both?</p>
     <%= f.label :plan_types do %>
       <%= f.collection_check_boxes :plan_types, Profile::PLAN_TYPES.map{|p| OpenStruct.new(name: p)}, :name, :name %>
     <% end %>
