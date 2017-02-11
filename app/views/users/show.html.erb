@@ -14,12 +14,13 @@
                 <h4>Mentoring Needs</h4>
                 <p><%= @user.profile.mentoring_needs %></p>
             </div>
-            <% unless current_user == @user %>
+            <% unless current_user == @user || @connection %>
                 <%= button_to('Click to Connect', new_connections_path(@user.profile.id), method: :get, class: 'btn btn-primary btn-lg btn-block' )  %>
             <% end %>
+            <% if @connection %>
+                <p>You already sent a request to this user.</p>
+            <% end %>
         </div>
-            
+
     </div>
 </div>
-
-
