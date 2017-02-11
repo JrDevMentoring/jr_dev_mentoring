@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   has_one :profile
 
+  has_many :connections, foreign_key: :requester_id
+  has_many :connection_requests, class_name: 'Connection', foreign_key: :requested_id
+
   has_many :internships, dependent: :destroy
 
   scope :mentors, -> {joins(:profile).where("profiles.not_available=? and 'mentor'=ANY(profiles.plan_types)", false)}
