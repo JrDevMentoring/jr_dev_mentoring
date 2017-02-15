@@ -33,4 +33,10 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     comments { Faker::Lorem.paragraph }
   end
+
+  factory :connection do
+    requester { create(:profile).user }
+    requested { create(:profile).user }
+
+  end
 end
