@@ -1,8 +1,4 @@
 <div>
-  <% if @available_mentees.nil? || @available_mentees.empty? && @available_mentors.nil? || @available_mentors.empty? %>
-    <div class='alert alert-warning text-center'>No available mentor/mentee at the moment. Kindly check back later</div>
-  <% end %>
-
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
     <% if @available_mentees %>
@@ -10,7 +6,11 @@
     <% end %>
 
     <% if @available_mentors %>
-      <li role="presentation"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+      <% if @available_mentees.nil? %>
+        <li role="presentation" class="active"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+      <% else %>
+        <li role="presentation"><a href="#mentors" aria-controls="mentors" role="tab" data-toggle="tab">Mentors</a></li>
+      <% end %>
     <% end %>
 
   </ul>

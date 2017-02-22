@@ -7,6 +7,7 @@
   </div>
 
   <div class="form-group">
+    <p>Would you like to participate as a mentor, mentee, or both?</p>
     <%= f.label :plan_types do %>
       <%= f.collection_check_boxes :plan_types, Profile::PLAN_TYPES.map{|p| OpenStruct.new(name: p)}, :name, :name %>
     <% end %>
@@ -49,12 +50,11 @@
     <%= f.label :bio, 'Bio (1000 character limit)' %>
     <%= f.text_area :bio, class: 'form-control' %>
   </div>
-  <% if @user.mentee? %>
-    <div class="form-group">
-      <%= f.label :mentoring_needs, ' What are your mentoring needs? (Mentees ONLY - 1000 character limit)' %>
-      <%= f.text_area :mentoring_needs, class: 'form-control' %>
-    </div>
-  <% end %>
+  <div class="form-group">
+    <p>This is required for a "MENTEE" plan</p>
+    <%= f.label :mentoring_needs, ' What are your mentoring needs? (Mentees ONLY - 1000 character limit)' %>
+    <%= f.text_area :mentoring_needs, class: 'form-control' %>
+  </div>
 
   <div class="form-group">
     <%= f.submit "Update Profile", class: 'btn btn-primary' %>

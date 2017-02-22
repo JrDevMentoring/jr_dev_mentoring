@@ -11,6 +11,7 @@ FactoryGirl.define do
     coding_languages { Faker::Lorem.sentence }
     bio { Faker::Lorem.paragraph }
     mentoring_needs { Faker::Lorem.sentence }
+    plan_types []
 
     association :user
 
@@ -31,5 +32,11 @@ FactoryGirl.define do
     name { Faker::Name.name }
     email { Faker::Internet.email }
     comments { Faker::Lorem.paragraph }
+  end
+
+  factory :connection do
+    requester { create(:profile).user }
+    requested { create(:profile).user }
+
   end
 end
