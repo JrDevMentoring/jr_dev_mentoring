@@ -11,6 +11,10 @@
   <%= render 'layouts/header' %>
   <div class="container">
     <%= render 'layouts/flash_notice', flash: flash %>
+    <div class="row">
+      <%= render 'layouts/coc' %>
+    </div>
+
     <%= yield %>
   </div>
 
