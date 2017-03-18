@@ -2,6 +2,8 @@
 
 Harnessing the power of mentorship to build a community of work ready Jr. Devs.
 
+__Note: Usage of all/any Jr Dev Mentoring space signifies agreement to conform to the [code of conduct](http://bit.ly/2mMILU1)__
+
 ### Getting Started
 
 ###### Dependencies:
