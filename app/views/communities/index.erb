@@ -17,10 +17,24 @@
 
   <!-- Tab panes -->
   <div class="tab-content">
-
+    <div class="row" style='padding: 10px;'>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <%= form_tag communities_path, method: :get, class: 'form-inline language-form' do %>
+          <div class="form-group">
+            <%= text_field_tag :query, params[:query],
+            placeholder: 'Filter by programming language', type: :search, class: "form-control" %>
+          </div>
+          <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
     <% if @available_mentees %>
       <div role="tabpanel" class="tab-pane active" id="mentees">
-        <%= render 'profiles/community_profile', users: @available_mentees, community_type: 'Mentees' %>
+        <%= render 'profiles/community_profile', profiles: @available_mentees, community_type: 'Mentees' %>
       </div>
     <% end %>
 
@@ -30,7 +44,7 @@
       <% else %>
         <div role="tabpanel" class="tab-pane" id="mentors">
       <% end %>
-        <%= render 'profiles/community_profile', users: @available_mentors, community_type: 'Mentors' %>
+        <%= render 'profiles/community_profile', profiles: @available_mentors, community_type: 'Mentors' %>
       </div>
     <% end %>
   </div>

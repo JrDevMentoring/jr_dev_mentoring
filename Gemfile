@@ -16,6 +16,7 @@ gem 'aws-sdk', '< 2.0'
 gem 'figaro'
 gem 'activeadmin', '~> 1.0.0.pre1'
 gem 'pg'
+gem 'pg_search'
 gem 'simple_form'
 
 group :development, :test do
@@ -33,6 +34,7 @@ end
 
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
 end
 
 group :production do
