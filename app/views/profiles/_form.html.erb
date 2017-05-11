@@ -1,15 +1,21 @@
 <%= form_for @profile, url: user_profile_path, :html => { :multipart => true } do |f| %>
   <div class="form-group">
     <%= f.label :not_available do %>
-    <%= f.check_box :not_available %>
-    I am NOT available
+      <%= f.check_box :not_available %>
+      I am NOT available
     <% end %>
+    <p><small>Leave my profile intact, but indicate to mentors/mentees that I am currently unavailable.</small><p>
   </div>
 
   <div class="form-group">
-    <p>Would you like to participate as a mentor, mentee, or both?</p>
+    <p>Are you looking to find a mentor? Be a mentor? Check boxes that apply.</p>
     <%= f.label :plan_types do %>
-      <%= f.collection_check_boxes :plan_types, Profile::PLAN_TYPES.map{|p| OpenStruct.new(name: p)}, :name, :name %>
+      <%= f.collection_check_boxes :plan_types, Profile::PLAN_TYPES.map{|p| OpenStruct.new(name: p)}, :name, :name do |b| %>
+          <div class="collection-check-box">
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 
