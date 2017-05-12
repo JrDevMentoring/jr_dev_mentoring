@@ -24,7 +24,6 @@ group :development, :test do
   gem 'simplecov', :require => false
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'database_cleaner'
   gem 'pry'
 end
 
