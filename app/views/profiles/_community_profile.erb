@@ -6,25 +6,25 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
 
-    <% if users.empty? %>
-      <div class='alert alert-warning text-center'>No available mentor/mentee at the moment. Kindly check back later</div>
+    <% if profiles.empty? %>
+      <div class='alert alert-warning text-center'>No available <%= community_type.downcase %> at the moment. Kindly check back later</div>
     <% end %>
 
     <ul class="list-unstyled">
-      <% users.each do |user| %>
+      <% profiles.each do |profile| %>
         <li>
           <div class='well row <%= cycle('', 'white-bg')%>'>
             <div class="col-sm-4 text-center">
-              <%= link_to user do %>
-                <%= image_tag user.profile.avatar.url(:thumb), class: 'user-index-avatar' %>
+              <%= link_to profile.user do %>
+                <%= image_tag profile.avatar.url(:thumb), class: 'profile-index-avatar' %>
               <% end %>
             </div>
             <div>
-              <%= link_to user do %>
-                <h3><%= user.profile.first_name %> <%= user.profile.last_name %></h3>
+              <%= link_to profile.user do %>
+                <h3><%= profile.first_name %> <%= profile.last_name %></h3>
               <% end %>
-              <h5><%= user.profile.city %>, <%= user.profile.state %>, <%= user.profile.country %></h5>
-              <h5><%= user.profile.coding_languages %></h5>
+              <h5><%= profile.city %>, <%= profile.state %>, <%= profile.country %></h5>
+              <h5><%= profile.coding_languages %></h5>
             </div>
           </div>
         </li>

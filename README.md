@@ -1,4 +1,4 @@
-## Junior Developer Mentoring [![Circle CI](https://circleci.com/gh/kmcrayton7/jr_dev_mentoring.svg?style=svg&circle-token=5626595a0b63b1dedbee04a8e40883709b91a3cf)](https://circleci.com/gh/kmcrayton7/jr_dev_mentoring) 
+## Junior Developer Mentoring [![CircleCI](https://circleci.com/gh/JrDevMentoring/jr_dev_mentoring.svg?style=svg&circle-token=5626595a0b63b1dedbee04a8e40883709b91a3cf)](https://circleci.com/gh/JrDevMentoring/jr_dev_mentoring) 
 
 Harnessing the power of mentorship to build a community of work ready Jr. Devs.
 
@@ -28,7 +28,7 @@ The Continous Integration testing has CI-status has shown above. However, to run
 
 ### Contributing
 
-Please read the [Contribution Guide](https://github.com/kmcrayton7/jr_dev_mentoring/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests to us.
+Please read the [Contribution Guide](https://github.com/JrDevMentoring/jr_dev_mentoring/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests to us.
 
 ### License
 
@@ -36,4 +36,4 @@ This project is licensed under the [MIT open source license](https://opensource.
 
 ### On the media
 
-Twitter: @JrDevMentoring
+Twitter: [@JrDevMentoring](https://twitter.com/JrDevMentoring)

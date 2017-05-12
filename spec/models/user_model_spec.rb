@@ -47,6 +47,7 @@ describe User do
 
   describe "ClassMethods" do
     before :all do
+      DatabaseCleaner.start
       @mentors = create_list(:user, 3)
       @mentees = create_list(:user, 4)
 
@@ -62,6 +63,10 @@ describe User do
 
       @available_mentors = User.mentors
       @available_mentees = User.mentees
+    end
+
+    after :all do
+      DatabaseCleaner.clean
     end
 
     describe "#Mentors" do
