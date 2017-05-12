@@ -36,4 +36,4 @@ This project is licensed under the [MIT open source license](https://opensource.
 
 ### On the media
 
-Twitter: @JrDevMentoring
+Twitter: [@JrDevMentoring](https://twitter.com/JrDevMentoring)
