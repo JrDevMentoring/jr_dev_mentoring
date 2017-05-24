@@ -23,5 +23,7 @@ Rails.application.routes.draw do
 
 
 
+
+
 	match '*path', :to => 'application#routing_error', via: [:get, :post]
 end
