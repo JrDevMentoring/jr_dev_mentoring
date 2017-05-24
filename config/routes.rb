@@ -13,15 +13,17 @@ Rails.application.routes.draw do
   resources :contacts
   resources :communities, only: :index
   get '/about' => 'pages#about'
-  get "/jrdevslack" => redirect("https://jr-dev-mentoring.slack.com")
+  get "/jrdevslack" => redirect("https://slackpass.io/jr-dev-mentoring")
 
   authenticated :user do
     root 'pages#dashboard', as: :authenticated_root
   end
 
   root 'pages#home'
-  
-  
+
+
+
+
 
 	match '*path', :to => 'application#routing_error', via: [:get, :post]
 end
